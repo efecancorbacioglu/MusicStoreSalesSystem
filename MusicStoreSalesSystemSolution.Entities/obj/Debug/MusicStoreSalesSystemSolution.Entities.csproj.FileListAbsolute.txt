@@ -1,0 +1,12 @@
+C:\Users\MONSTER\Desktop\Udemy Projeler\MusicStoreSalesSystemSolution\MusicStoreSalesSystemSolution.Entities\bin\Debug\MusicStoreSalesSystemSolution.Entities.dll
+C:\Users\MONSTER\Desktop\Udemy Projeler\MusicStoreSalesSystemSolution\MusicStoreSalesSystemSolution.Entities\bin\Debug\MusicStoreSalesSystemSolution.Entities.pdb
+C:\Users\MONSTER\Desktop\Udemy Projeler\MusicStoreSalesSystemSolution\MusicStoreSalesSystemSolution.Entities\obj\Debug\MusicStoreSalesSystemSolution.Entities.csproj.AssemblyReference.cache
+C:\Users\MONSTER\Desktop\Udemy Projeler\MusicStoreSalesSystemSolution\MusicStoreSalesSystemSolution.Entities\obj\Debug\MusicStoreSalesSystemSolution.Entities.csproj.CoreCompileInputs.cache
+C:\Users\MONSTER\Desktop\Udemy Projeler\MusicStoreSalesSystemSolution\MusicStoreSalesSystemSolution.Entities\obj\Debug\MusicStoreSalesSystemSolution.Entities.dll
+C:\Users\MONSTER\Desktop\Udemy Projeler\MusicStoreSalesSystemSolution\MusicStoreSalesSystemSolution.Entities\obj\Debug\MusicStoreSalesSystemSolution.Entities.pdb
+C:\Users\MONSTER\Desktop\Udemy Projeler\MusicStoreSalesSystemSolution\MusicStoreSalesSystemSolution.Entities\bin\Debug\MusicStoreSalesSystemSolution.Entities.dll.config
+C:\Users\MONSTER\Desktop\Udemy Projeler\MusicStoreSalesSystemSolution\MusicStoreSalesSystemSolution.Entities\bin\Debug\EntityFramework.dll
+C:\Users\MONSTER\Desktop\Udemy Projeler\MusicStoreSalesSystemSolution\MusicStoreSalesSystemSolution.Entities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\MONSTER\Desktop\Udemy Projeler\MusicStoreSalesSystemSolution\MusicStoreSalesSystemSolution.Entities\bin\Debug\EntityFramework.xml
+C:\Users\MONSTER\Desktop\Udemy Projeler\MusicStoreSalesSystemSolution\MusicStoreSalesSystemSolution.Entities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\MONSTER\Desktop\Udemy Projeler\MusicStoreSalesSystemSolution\MusicStoreSalesSystemSolution.Entities\obj\Debug\MusicStoreSalesSystemSolution.Entities.csproj.CopyComplete

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4c74e94dfe704b1f96dacf434aeb7d9d" Name="Diagram1">
+        <EntityTypeShape EntityType="MusicStoreDBModel.Category" Width="1.5" PointX="1.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicStoreDBModel.Customer" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicStoreDBModel.Employee" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicStoreDBModel.Product" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicStoreDBModel.Role" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicStoreDBModel.Sale" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicStoreDBModel.sysdiagram" Width="1.5" PointX="2.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicStoreDBModel.User" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="MusicStoreDBModel.FK_Products_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicStoreDBModel.FK_Sales_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicStoreDBModel.FK_Sales_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicStoreDBModel.FK_Users_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicStoreDBModel.FK_Sales_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicStoreDBModel.FK_Users_Roles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
