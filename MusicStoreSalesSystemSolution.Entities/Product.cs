@@ -27,6 +27,7 @@ namespace MusicStoreSalesSystemSolution.Entities
         public byte[] Photo { get; set; }
         public int CategoryId { get; set; }
         public string ProductNo { get; set; }
+        public bool IsActive { get; set; }
     
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

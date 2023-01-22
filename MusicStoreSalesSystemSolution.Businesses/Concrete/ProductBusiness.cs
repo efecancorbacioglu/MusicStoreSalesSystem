@@ -3,6 +3,7 @@ using MusicStoreSalesSystemSolution.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -35,9 +36,8 @@ namespace MusicStoreSalesSystemSolution.Businesses.Concrete
         {
             using (var db = new MusicStoreDBEntities())
             {
-                var entity = db.Products.Find(id);
-                db.Products.Attach(entity);
-                db.Entry(entity).State = EntityState.Deleted;
+                var product = db.Products.Find(id);
+                product.IsActive = false;
                 db.SaveChanges();
             }
         }
@@ -60,11 +60,11 @@ namespace MusicStoreSalesSystemSolution.Businesses.Concrete
             }
         }
 
-        public List<Product> GetAll()
+        public List<SP_GetProducts_Result> GetAll()
         {
             using (var db = new MusicStoreDBEntities())
             {
-                return db.Products.ToList();
+                return db.SP_GetProducts().Where(p => p.IsActive == true).ToList();
             }
         }
 
@@ -74,6 +74,14 @@ namespace MusicStoreSalesSystemSolution.Businesses.Concrete
         }
 
         public Product GetById(int id)
+        {
+            using (var db = new MusicStoreDBEntities())
+            {
+                return db.Products.Where(p => p.ProductId == id).FirstOrDefault();
+            }
+        }
+
+        List<Product> IDatabaseBusiness<Product>.GetAll()
         {
             throw new NotImplementedException();
         }

@@ -31,8 +31,8 @@
     <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-    <NavigationProperty Name="Sales" Relationship="Self.FK_Sales_Employee" FromRole="Employee" ToRole="Sales" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Users_Employee" FromRole="Employee" ToRole="Users" />
+    <NavigationProperty Name="Sales" Relationship="Self.FK_Sales_Employee" FromRole="Employees" ToRole="Sales" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Employees" FromRole="Employees" ToRole="Users" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -42,9 +42,10 @@
     <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="Stock" Type="Int32" Nullable="false" />
-    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="CategoryId" Type="Int32" Nullable="false" />
     <Property Name="ProductNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Category" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
     <NavigationProperty Name="Sales" Relationship="Self.FK_Sales_Products" FromRole="Products" ToRole="Sales" />
   </EntityType>
@@ -67,7 +68,7 @@
     <Property Name="ProductId" Type="Int32" Nullable="false" />
     <Property Name="EmployeeId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Customer" Relationship="Self.FK_Sales_Customers" FromRole="Sales" ToRole="Customers" />
-    <NavigationProperty Name="Employee" Relationship="Self.FK_Sales_Employee" FromRole="Sales" ToRole="Employee" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Sales_Employee" FromRole="Sales" ToRole="Employees" />
     <NavigationProperty Name="Product" Relationship="Self.FK_Sales_Products" FromRole="Sales" ToRole="Products" />
   </EntityType>
   <EntityType Name="sysdiagram">
@@ -84,13 +85,13 @@
     <Key>
       <PropertyRef Name="UserId" />
     </Key>
-    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
     <Property Name="RoleId" Type="Int32" Nullable="false" />
-    <Property Name="EmployeeId" Type="Int32" />
-    <NavigationProperty Name="Employee" Relationship="Self.FK_Users_Employee" FromRole="Users" ToRole="Employee" />
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Users_Employees" FromRole="Users" ToRole="Employees" />
     <NavigationProperty Name="Role" Relationship="Self.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
   </EntityType>
   <Association Name="FK_Products_Categories">
@@ -118,10 +119,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Sales_Employee">
-    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
     <End Role="Sales" Type="Self.Sale" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Employee">
+      <Principal Role="Employees">
         <PropertyRef Name="EmployeeId" />
       </Principal>
       <Dependent Role="Sales">
@@ -129,15 +130,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Users_Employee">
-    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+  <Association Name="FK_Users_Employees">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Employee">
+      <Principal Role="Employees">
         <PropertyRef Name="EmployeeId" />
       </Principal>
       <Dependent Role="Users">
-        <PropertyRef Name="UserId" />
+        <PropertyRef Name="EmployeeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -183,11 +184,11 @@
       <End Role="Sales" EntitySet="Sales" />
     </AssociationSet>
     <AssociationSet Name="FK_Sales_Employee" Association="Self.FK_Sales_Employee">
-      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Employees" EntitySet="Employees" />
       <End Role="Sales" EntitySet="Sales" />
     </AssociationSet>
-    <AssociationSet Name="FK_Users_Employee" Association="Self.FK_Users_Employee">
-      <End Role="Employee" EntitySet="Employees" />
+    <AssociationSet Name="FK_Users_Employees" Association="Self.FK_Users_Employees">
+      <End Role="Employees" EntitySet="Employees" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
     <AssociationSet Name="FK_Sales_Products" Association="Self.FK_Sales_Products">
@@ -198,5 +199,17 @@
       <End Role="Roles" EntitySet="Roles" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
+    <FunctionImport Name="SP_GetProducts" ReturnType="Collection(MusicStoreDBModel.SP_GetProducts_Result)" />
   </EntityContainer>
+  <ComplexType Name="SP_GetProducts_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="Stock" Nullable="false" />
+    <Property Type="Binary" Name="Photo" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <Property Type="String" Name="ProductNo" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
+  </ComplexType>
 </Schema>

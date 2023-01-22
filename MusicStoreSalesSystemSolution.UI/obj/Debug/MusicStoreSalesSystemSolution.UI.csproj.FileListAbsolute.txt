@@ -21,3 +21,29 @@ C:\Users\MONSTER\Desktop\Udemy Projeler\MusicStoreSalesSystemSolution\MusicStore
 C:\Users\MONSTER\Desktop\Udemy Projeler\MusicStoreSalesSystemSolution\MusicStoreSalesSystemSolution.UI\obj\Debug\MusicStoreSalesSystemSolution.UI.csproj.CopyComplete
 C:\Users\MONSTER\Desktop\Udemy Projeler\MusicStoreSalesSystemSolution\MusicStoreSalesSystemSolution.UI\obj\Debug\MusicStoreSalesSystemSolution.UI.exe
 C:\Users\MONSTER\Desktop\Udemy Projeler\MusicStoreSalesSystemSolution\MusicStoreSalesSystemSolution.UI\obj\Debug\MusicStoreSalesSystemSolution.UI.pdb
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\obj\Debug\MusicStoreSalesSystemSolution.UI.csproj.AssemblyReference.cache
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\obj\Debug\MusicStoreSalesSystemSolution.UI.csproj.SuggestedBindingRedirects.cache
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\obj\Debug\MusicStoreSalesSystemSolution.UI.Forms.AdminEmployeesForm.resources
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\obj\Debug\MusicStoreSalesSystemSolution.UI.Forms.AdminProductsForm.resources
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\obj\Debug\MusicStoreSalesSystemSolution.UI.Forms.ForgotPasswordForm.resources
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\obj\Debug\MusicStoreSalesSystemSolution.UI.Forms.LoginForm.resources
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\obj\Debug\MusicStoreSalesSystemSolution.UI.Properties.Resources.resources
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\obj\Debug\MusicStoreSalesSystemSolution.UI.csproj.GenerateResource.cache
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\obj\Debug\MusicStoreSalesSystemSolution.UI.csproj.CoreCompileInputs.cache
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\obj\Debug\MusicStoreSalesSystemSolution.UI.exe
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\obj\Debug\MusicStoreSalesSystemSolution.UI.pdb
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\bin\Debug\MusicStoreSalesSystemSolution.UI.exe.config
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\bin\Debug\MusicStoreSalesSystemSolution.UI.exe
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\bin\Debug\MusicStoreSalesSystemSolution.UI.pdb
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\bin\Debug\EntityFramework.dll
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\bin\Debug\MusicStoreSalesSystemSolution.Businesses.dll
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\bin\Debug\MusicStoreSalesSystemSolution.Entities.dll
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\bin\Debug\MusicStoreSalesSystemSolution.Businesses.pdb
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\bin\Debug\MusicStoreSalesSystemSolution.Businesses.dll.config
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\bin\Debug\MusicStoreSalesSystemSolution.Entities.pdb
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\bin\Debug\MusicStoreSalesSystemSolution.Entities.dll.config
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\bin\Debug\EntityFramework.xml
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\obj\Debug\MusicStoreSalesSystemSolution.UI.csproj.CopyComplete
+C:\Users\efeco\Desktop\MusicStoreSalesSystem\MusicStoreSalesSystemSolution.UI\obj\Debug\MusicStoreSalesSystemSolution.UI.Forms.AdminMainForm.resources

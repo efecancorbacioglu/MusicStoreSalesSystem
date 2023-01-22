@@ -2,6 +2,7 @@
 using MusicStoreSalesSystemSolution.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -18,7 +19,12 @@ namespace MusicStoreSalesSystemSolution.Businesses.Concrete
 
         public void Delete(User entity)
         {
-            throw new NotImplementedException();
+            using (var db = new MusicStoreDBEntities())
+            {
+                db.Entry(entity).State = EntityState.Deleted;
+                db.SaveChanges();
+                
+            }
         }
 
         public void Delete(int id)
@@ -41,7 +47,10 @@ namespace MusicStoreSalesSystemSolution.Businesses.Concrete
 
         public List<User> GetAll()
         {
-            throw new NotImplementedException();
+            using (var db = new MusicStoreDBEntities())
+            {
+                return db.Users.ToList();
+            }
         }
 
         public List<User> GetAll(Expression<Func<User, bool>> expression)
@@ -72,5 +81,6 @@ namespace MusicStoreSalesSystemSolution.Businesses.Concrete
                 }
             }
         }
+
     }
 }

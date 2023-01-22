@@ -12,6 +12,8 @@ namespace MusicStoreSalesSystemSolution.Entities
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class MusicStoreDBEntities : DbContext
     {
@@ -33,5 +35,10 @@ namespace MusicStoreSalesSystemSolution.Entities
         public virtual DbSet<Sale> Sales { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
+    
+        public virtual ObjectResult<SP_GetProducts_Result> SP_GetProducts()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetProducts_Result>("SP_GetProducts");
+        }
     }
 }

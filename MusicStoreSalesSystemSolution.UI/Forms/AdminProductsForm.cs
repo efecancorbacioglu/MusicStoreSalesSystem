@@ -22,11 +22,22 @@ namespace MusicStoreSalesSystemSolution.UI.Forms
         CategoryBusiness categoryBusiness = new CategoryBusiness();
 
         Product currenProduct;
+        string imagePath;
         public void ListProducts()
         {
             dgvProducts.DataSource = productBusiness.GetAll();
-            dgvProducts.Columns["CategoryId"].Visible = false;
-            dgvProducts.Columns["Sales"].Visible = false;
+            dgvProducts.Columns["Photo"].Visible = false;
+            dgvProducts.Columns["IsActive"].Visible = false;
+        }
+        public void clearTextBoxes()
+        {
+            txtId.Clear();
+            txtProductName.Clear();
+            txtPrice.Clear();
+            txtStock.Clear();
+            cbCategories.SelectedIndex = 0;
+            pbInstrument.ImageLocation = null;
+
         }
 
         public string GenerateProductNo()
@@ -56,18 +67,6 @@ namespace MusicStoreSalesSystemSolution.UI.Forms
             cbCategories.ValueMember = "CategoryId";
         }
 
-        private void dgvProducts_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            var selectedRow = dgvProducts.Rows[e.RowIndex];
-
-            txtId.Text = selectedRow.Cells["ProductId"].Value.ToString();
-            txtProductName.Text = selectedRow.Cells["ProductName"].Value.ToString();
-            txtPrice.Text = selectedRow.Cells["Price"].Value.ToString();
-            txtStock.Text = selectedRow.Cells["Stock"].Value.ToString();
-            cbCategories.SelectedValue = selectedRow.Cells["CategoryId"].Value;
-
-        }
-
         private void btnInsert_Click(object sender, EventArgs e)
         {
             var product = productBusiness.Get(p => p.ProductName == txtProductName.Text);
@@ -88,18 +87,134 @@ namespace MusicStoreSalesSystemSolution.UI.Forms
                             ProductName = txtProductName.Text,
                             Price = Convert.ToDecimal(txtPrice.Text),
                             Stock = Convert.ToInt32(txtStock.Text),
-                            Photo = ImageBusiness.ImageToByte(pbInstrument.ImageLocation),
-                            CategoryId = cbCategories.SelectedIndex,
+                            Photo = pbInstrument.ImageLocation != null ? ImageBusiness.ImageToByte(pbInstrument.ImageLocation) : null,
+                            CategoryId = int.Parse(cbCategories.SelectedValue.ToString()),
+                            IsActive = true,
                             ProductNo = productNo
                         });
+
+                        MessageBox.Show("The product insert the database.", "Transaction Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ListProducts();
+                        clearTextBoxes();
                     }
+                }
+            }
+            else if (product.IsActive == false)
+            {
+                if (string.IsNullOrEmpty(txtPrice.Text) || string.IsNullOrEmpty(txtStock.Text) || cbCategories.SelectedIndex == 0 || pbInstrument.ImageLocation != null)
+                {
+                    MessageBox.Show("Please enter all product information completely", "Missing Informations", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    var answer = MessageBox.Show("Are you sure to add this product?", "Adding", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (answer == DialogResult.Yes)
+                    {
+                        productBusiness.Edit(new Product
+                        {
+                            ProductId = product.ProductId,
+                            ProductName = txtProductName.Text,
+                            Price = Convert.ToDecimal(txtPrice.Text),
+                            Stock = Convert.ToInt32(txtStock.Text),
+                            Photo = pbInstrument.ImageLocation != null ? ImageBusiness.ImageToByte(pbInstrument.ImageLocation) : null,
+                            CategoryId = int.Parse(cbCategories.SelectedValue.ToString()),
+                            ProductNo = product.ProductNo,
+                            IsActive = true
+                        });
+
+                        MessageBox.Show("The product insert the database.", "Transaction Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ListProducts();
+                        clearTextBoxes();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("A product of this information is available in the database. Please check the product name or barcode.", "The product exist", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void dgvProducts_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            var selectedRow = dgvProducts.Rows[e.RowIndex];
+            var product = productBusiness.GetById(int.Parse(selectedRow.Cells["ProductId"].Value.ToString()));
+
+            txtId.Text = selectedRow.Cells["ProductId"].Value.ToString();
+            txtProductName.Text = selectedRow.Cells["ProductName"].Value.ToString();
+            txtPrice.Text = selectedRow.Cells["Price"].Value.ToString();
+            txtStock.Text = selectedRow.Cells["Stock"].Value.ToString();
+            cbCategories.SelectedValue = selectedRow.Cells["CategoryId"].Value;
+            pbInstrument.Image = product.Photo != null ? ImageBusiness.ByteToImage((byte[])selectedRow.Cells["Photo"].Value) : null;
+
+        }
+
+        private void txtClear_Click(object sender, EventArgs e)
+        {
+            clearTextBoxes();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtId.Text))
+            {
+                MessageBox.Show("Please choose a product before deleting", "Choose Product", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                var answer = MessageBox.Show("Are you sure to delete this product?", "Deleting", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (answer == DialogResult.Yes)
+                {
+                    productBusiness.Delete(Convert.ToInt32(txtId.Text));
+                    MessageBox.Show("The product deleted from the database", "The product Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ListProducts();
+
                 }
             }
         }
 
-        private void txtId_TextChanged(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtProductName.Text) || string.IsNullOrEmpty(txtPrice.Text) || string.IsNullOrEmpty(txtStock.Text) ||
+                cbCategories.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please enter all product information completely", "Missing Informations", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                var answer = MessageBox.Show("Are you sure to update this product?", "Updating", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (answer == DialogResult.Yes)
+                {
+                    var product = productBusiness.GetById(Convert.ToInt32(txtId.Text));
 
+                    productBusiness.Edit(new Product
+                    {
+                        ProductId = Convert.ToInt32(txtId.Text),
+                        ProductName = txtProductName.Text,
+                        Price = Convert.ToDecimal(txtPrice.Text),
+                        Stock = Convert.ToInt32(txtStock.Text),
+                        Photo = pbInstrument.ImageLocation != null ? ImageBusiness.ImageToByte(pbInstrument.ImageLocation) : null,
+                        CategoryId = int.Parse(cbCategories.SelectedValue.ToString()),
+                        ProductNo = product.ProductNo,
+                        IsActive = true
+                    });
+
+                    MessageBox.Show("The Product Updated", "Transaction Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ListProducts();
+                }
+            }
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            using (var openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files(*.JPEG;*.JPG;*.PNG) | *.JPEG;*.JPG;*.PNG";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    imagePath = openFileDialog.FileName;
+                    pbInstrument.ImageLocation = openFileDialog.FileName;
+                }
+            }
         }
     }
 }

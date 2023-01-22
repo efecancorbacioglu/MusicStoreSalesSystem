@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="99ab44f808cd40b0bde5ab546df71070" Name="Diagram1">
-        <EntityTypeShape EntityType="MusicStoreDBModel.Category" Width="1.5" PointX="1.5" PointY="12.375" IsExpanded="true" />
+      <Diagram DiagramId="6ca6b23c94b5463f9e6626f66c9a727d" Name="Diagram1">
+        <EntityTypeShape EntityType="MusicStoreDBModel.Category" Width="1.5" PointX="1.5" PointY="13.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MusicStoreDBModel.Customer" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MusicStoreDBModel.Employee" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicStoreDBModel.Product" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicStoreDBModel.Role" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicStoreDBModel.Sale" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicStoreDBModel.sysdiagram" Width="1.5" PointX="2.75" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicStoreDBModel.User" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicStoreDBModel.Product" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicStoreDBModel.Role" Width="1.5" PointX="3.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicStoreDBModel.Sale" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicStoreDBModel.sysdiagram" Width="1.5" PointX="2.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicStoreDBModel.User" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
         <AssociationConnector Association="MusicStoreDBModel.FK_Products_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="MusicStoreDBModel.FK_Sales_Customers" ManuallyRouted="false" />
         <AssociationConnector Association="MusicStoreDBModel.FK_Sales_Employee" ManuallyRouted="false" />

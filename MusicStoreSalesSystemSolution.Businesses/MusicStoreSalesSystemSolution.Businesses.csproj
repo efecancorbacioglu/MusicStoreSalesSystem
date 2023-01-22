@@ -167,6 +167,7 @@
     <Compile Include="Concrete\CustomerBusiness.cs" />
     <Compile Include="Concrete\EmployeeBusiness.cs" />
     <Compile Include="Concrete\ImageBusiness.cs" />
+    <Compile Include="Concrete\MailBusiness.cs" />
     <Compile Include="Concrete\ProductBusiness.cs" />
     <Compile Include="Concrete\RoleBusiness.cs" />
     <Compile Include="Concrete\SalesBusiness.cs" />

@@ -47,8 +47,15 @@ namespace MusicStoreSalesSystemSolution.UI.Forms
                     if (userBusiness.UserIsAdmin(user.UserName))
                     {
                         UserInfo = user;
-                        AdminProductsForm adminProductsForm = new AdminProductsForm();
-                        adminProductsForm.Show();
+                        AdminMainForm adminMainForm = new AdminMainForm();
+                        adminMainForm.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        UserInfo = user;
+                        EmployeeSalesForm employeeMainForm = new EmployeeSalesForm();
+                        employeeMainForm.Show();
                         this.Hide();
                     }
                 }
@@ -58,5 +65,12 @@ namespace MusicStoreSalesSystemSolution.UI.Forms
                 }
             }
         }
+
+        private void LnkForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgotPasswordForm forgotPassForm = new ForgotPasswordForm();
+            forgotPassForm.Show();
+        }
+
     }
 }
