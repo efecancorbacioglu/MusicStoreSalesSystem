@@ -87,7 +87,16 @@
     <Compile Include="SP_GetProducts_Result.cs">
       <DependentUpon>MusicStoreDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_Top_5_Seller_Result.cs">
+      <DependentUpon>MusicStoreDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_top_five_selling_employee_Result.cs">
+      <DependentUpon>MusicStoreDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="sysdiagram.cs">
+      <DependentUpon>MusicStoreDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="top_five_selling_products_Result.cs">
       <DependentUpon>MusicStoreDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">

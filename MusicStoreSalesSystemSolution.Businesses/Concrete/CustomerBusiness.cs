@@ -2,6 +2,7 @@
 using MusicStoreSalesSystemSolution.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -9,11 +10,16 @@ using System.Threading.Tasks;
 
 namespace MusicStoreSalesSystemSolution.Businesses.Concrete
 {
-    internal class CustomerBusiness : IDatabaseBusiness<Customer>
+    public class CustomerBusiness : IDatabaseBusiness<Customer>
     {
         public void Add(Customer entity)
         {
-            throw new NotImplementedException();
+            using (var db = new MusicStoreDBEntities())
+            {
+                db.Customers.Attach(entity);
+                db.Entry(entity).State = EntityState.Added;
+                db.SaveChanges();
+            }
         }
 
         public void Delete(Customer entity)
@@ -33,7 +39,10 @@ namespace MusicStoreSalesSystemSolution.Businesses.Concrete
 
         public Customer Get(Expression<Func<Customer, bool>> expression)
         {
-            throw new NotImplementedException();
+            using (var db = new MusicStoreDBEntities())
+            {
+               return db.Customers.Where(expression).FirstOrDefault();
+            }
         }
 
         public List<Customer> GetAll()

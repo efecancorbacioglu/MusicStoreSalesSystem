@@ -2,6 +2,7 @@
 using MusicStoreSalesSystemSolution.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -11,9 +12,31 @@ namespace MusicStoreSalesSystemSolution.Businesses.Concrete
 {
     public class SalesBusiness : IDatabaseBusiness<Sale>
     {
+        public List<top_five_selling_products_Result> GetTopFiveSale()
+        {
+            using (MusicStoreDBEntities db = new MusicStoreDBEntities())
+            {
+                return db.top_five_selling_products().ToList();   
+            }
+        }
+
+        public List<SP_Top_5_Seller_Result> GetTopFiveSeller()
+        {
+            using (MusicStoreDBEntities db = new MusicStoreDBEntities())
+            {
+                return db.SP_Top_5_Seller().ToList();
+            }
+        }
+
+
         public void Add(Sale entity)
         {
-            throw new NotImplementedException();
+            using (var db = new MusicStoreDBEntities())
+            {
+                db.Sales.Attach(entity);
+                db.Entry(entity).State = EntityState.Added;
+                db.SaveChanges();
+            }
         }
 
         public void Delete(Sale entity)
@@ -35,6 +58,8 @@ namespace MusicStoreSalesSystemSolution.Businesses.Concrete
         {
             throw new NotImplementedException();
         }
+
+
 
         public List<Sale> GetAll()
         {

@@ -65,7 +65,7 @@
             this.dgvProducts.RowHeadersWidth = 51;
             this.dgvProducts.RowTemplate.Height = 24;
             this.dgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProducts.Size = new System.Drawing.Size(756, 254);
+            this.dgvProducts.Size = new System.Drawing.Size(822, 254);
             this.dgvProducts.TabIndex = 1;
             this.dgvProducts.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_RowEnter);
             // 
@@ -258,7 +258,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 561);
+            this.ClientSize = new System.Drawing.Size(844, 556);
             this.Controls.Add(this.btn);
             this.Controls.Add(this.txtClear);
             this.Controls.Add(this.txtStock);
@@ -277,8 +277,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvProducts);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminProductsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Admin_Products";
             this.Load += new System.EventHandler(this.AdminProductsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();

@@ -161,6 +161,8 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="SP_GetProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_Top_5_Seller" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="top_five_selling_products" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="MusicStoreDBModelStoreContainer">
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
@@ -400,6 +402,9 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
           <FunctionImport Name="SP_GetProducts" ReturnType="Collection(MusicStoreDBModel.SP_GetProducts_Result)" />
+          <FunctionImport Name="top_five_selling_products" ReturnType="Collection(MusicStoreDBModel.top_five_selling_products_Result)" />
+          <FunctionImport Name="SP_top_five_selling_employee" ReturnType="Collection(MusicStoreDBModel.SP_top_five_selling_employee_Result)" />
+          <FunctionImport Name="SP_Top_5_Seller" ReturnType="Collection(MusicStoreDBModel.SP_Top_5_Seller_Result)" />
         </EntityContainer>
         <ComplexType Name="SP_GetProducts_Result">
           <Property Type="Int32" Name="ProductId" Nullable="false" />
@@ -411,6 +416,18 @@
           <Property Type="String" Name="ProductNo" Nullable="false" MaxLength="50" />
           <Property Type="Boolean" Name="IsActive" Nullable="false" />
           <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="top_five_selling_products_Result">
+          <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="TotalSales" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_top_five_selling_employee_Result">
+          <Property Type="String" Name="EmployeeName" Nullable="false" MaxLength="101" />
+          <Property Type="Int32" Name="TotalSales" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_Top_5_Seller_Result">
+          <Property Type="String" Name="EmployeeName" Nullable="false" MaxLength="101" />
+          <Property Type="Int32" Name="TotalSales" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -521,6 +538,22 @@
                 <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="top_five_selling_products" FunctionName="MusicStoreDBModel.Store.top_five_selling_products">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MusicStoreDBModel.top_five_selling_products_Result">
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="TotalSales" ColumnName="TotalSales" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Top_5_Seller" FunctionName="MusicStoreDBModel.Store.SP_Top_5_Seller">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MusicStoreDBModel.SP_Top_5_Seller_Result">
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="TotalSales" ColumnName="TotalSales" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

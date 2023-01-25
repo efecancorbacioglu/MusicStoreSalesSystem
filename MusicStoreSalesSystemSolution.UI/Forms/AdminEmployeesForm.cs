@@ -43,6 +43,7 @@ namespace MusicStoreSalesSystemSolution.UI.Forms
 
         EmployeeBusiness employeeBusiness = new EmployeeBusiness();
         UserBusiness userBusiness = new UserBusiness();
+        MailBusiness mailBusiness = new MailBusiness(); 
         
         string imagePath;
         private void AdminEmployeesForm_Load(object sender, EventArgs e)
@@ -157,8 +158,8 @@ namespace MusicStoreSalesSystemSolution.UI.Forms
                             Photo = pbEmployee.ImageLocation != null ? ImageBusiness.ImageToByte(pbEmployee.ImageLocation) : null,
                             IsActive = checkIsActive.Checked,
                         });
-
                         MessageBox.Show("The employee insert the database.", "Transaction Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
                         ListEmployees();
                         clearTextBoxes();
                     }

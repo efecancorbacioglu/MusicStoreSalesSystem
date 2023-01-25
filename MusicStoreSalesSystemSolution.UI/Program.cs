@@ -17,7 +17,7 @@ namespace MusicStoreSalesSystemSolution.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminEmployeesForm());
+            Application.Run(new AdminSalesForm());
         }
     }
 }

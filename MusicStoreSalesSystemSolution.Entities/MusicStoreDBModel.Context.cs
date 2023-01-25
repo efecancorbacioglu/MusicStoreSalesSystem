@@ -40,5 +40,20 @@ namespace MusicStoreSalesSystemSolution.Entities
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetProducts_Result>("SP_GetProducts");
         }
+    
+        public virtual ObjectResult<top_five_selling_products_Result> top_five_selling_products()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<top_five_selling_products_Result>("top_five_selling_products");
+        }
+    
+        public virtual ObjectResult<SP_top_five_selling_employee_Result> SP_top_five_selling_employee()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_top_five_selling_employee_Result>("SP_top_five_selling_employee");
+        }
+    
+        public virtual ObjectResult<SP_Top_5_Seller_Result> SP_Top_5_Seller()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Top_5_Seller_Result>("SP_Top_5_Seller");
+        }
     }
 }

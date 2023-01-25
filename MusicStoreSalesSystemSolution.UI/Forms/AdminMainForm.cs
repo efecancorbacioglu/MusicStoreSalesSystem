@@ -17,7 +17,7 @@ namespace MusicStoreSalesSystemSolution.UI.Forms
         {
             InitializeComponent();
         }
-        EmployeeBusiness employeeBusiness = new EmployeeBusiness();
+
         public void getMDIChildForm(Form form)
         {
             panelMain.Controls.Clear();
@@ -26,29 +26,13 @@ namespace MusicStoreSalesSystemSolution.UI.Forms
             form.Show();
         }
 
-        private void productsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AdminProductsForm adminProductsForm = new AdminProductsForm();
-            getMDIChildForm(adminProductsForm);
-        }
+        EmployeeBusiness employeeBusiness = new EmployeeBusiness();
 
-        private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AdminEmployeesForm adminEmployeesForm = new AdminEmployeesForm();
-            getMDIChildForm(adminEmployeesForm);
-        }
 
-        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnLogout_MouseHover(object sender, EventArgs e)
         {
-            AdminSalesForm adminSalesForm = new AdminSalesForm();
-            adminSalesForm.MdiParent = this;
-        }
-
-        private void EmployeeMainForm_Load(object sender, EventArgs e)
-        {
-            var employee = employeeBusiness.Get(em => em.EmployeeId == LoginForm.UserInfo.EmployeeId);
-            lblUserInfo.Text = employee.FirstName + " " + employee.LastName;
-            pbUserPic.Image = employee.Photo != null ? ImageBusiness.ByteToImage(employee.Photo) : null;
+            ToolTip tip = new ToolTip();
+            tip.SetToolTip(btnLogout, "Logout");
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -60,6 +44,42 @@ namespace MusicStoreSalesSystemSolution.UI.Forms
                 LoginForm loginForm = new LoginForm();
                 loginForm.Show();
             }
+        }
+
+        private void productsToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            AdminProductsForm adminProductsForm = new AdminProductsForm();
+            getMDIChildForm(adminProductsForm);
+        }
+
+        private void employeesToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            AdminEmployeesForm adminEmployeesForm = new AdminEmployeesForm();
+            getMDIChildForm(adminEmployeesForm);
+        }
+
+        private void salesToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            AdminSalesForm adminViewSalesForm = new AdminSalesForm();
+            getMDIChildForm(adminViewSalesForm);
+        }
+
+        private void btnLogout_Click_1(object sender, EventArgs e)
+        {
+            var answer = MessageBox.Show("Are you sure to exit the system?", "Exit System", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (answer == DialogResult.Yes)
+            {
+                this.Close();
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+            }
+        }
+
+        private void AdminMainForm_Load(object sender, EventArgs e)
+        {
+            var employee = employeeBusiness.Get(em => em.EmployeeId == LoginForm.UserInfo.EmployeeId);
+            lblUserInfo.Text = employee.FirstName + " " + employee.LastName;
+            pbUserPic.Image = employee.Photo != null ? ImageBusiness.ByteToImage(employee.Photo) : null;
         }
     }
 }

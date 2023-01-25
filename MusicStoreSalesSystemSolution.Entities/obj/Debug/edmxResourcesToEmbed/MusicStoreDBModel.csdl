@@ -201,6 +201,9 @@
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
     <FunctionImport Name="SP_GetProducts" ReturnType="Collection(MusicStoreDBModel.SP_GetProducts_Result)" />
+    <FunctionImport Name="top_five_selling_products" ReturnType="Collection(MusicStoreDBModel.top_five_selling_products_Result)" />
+    <FunctionImport Name="SP_top_five_selling_employee" ReturnType="Collection(MusicStoreDBModel.SP_top_five_selling_employee_Result)" />
+    <FunctionImport Name="SP_Top_5_Seller" ReturnType="Collection(MusicStoreDBModel.SP_Top_5_Seller_Result)" />
   </EntityContainer>
   <ComplexType Name="SP_GetProducts_Result">
     <Property Type="Int32" Name="ProductId" Nullable="false" />
@@ -212,5 +215,17 @@
     <Property Type="String" Name="ProductNo" Nullable="false" MaxLength="50" />
     <Property Type="Boolean" Name="IsActive" Nullable="false" />
     <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="top_five_selling_products_Result">
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="TotalSales" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_top_five_selling_employee_Result">
+    <Property Type="String" Name="EmployeeName" Nullable="false" MaxLength="101" />
+    <Property Type="Int32" Name="TotalSales" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_Top_5_Seller_Result">
+    <Property Type="String" Name="EmployeeName" Nullable="false" MaxLength="101" />
+    <Property Type="Int32" Name="TotalSales" Nullable="true" />
   </ComplexType>
 </Schema>
